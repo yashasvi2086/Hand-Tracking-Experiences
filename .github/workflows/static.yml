@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # Updated to Node 24 to fix your warning
+          node-version: 24 # This fixes your 'deprecated' warning
 
       - name: Install dependencies
         run: npm install
@@ -31,14 +31,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is the important part! 
-          # We are making sure it looks exactly for the 'dist' folder.
+          # This tells the robot exactly where the 'plate' is.
           path: './dist'
 
       - name: Deploy to GitHub Pages
